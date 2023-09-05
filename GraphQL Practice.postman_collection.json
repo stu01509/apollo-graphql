@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "0fa0101e-8007-476d-8fb5-c4988bd28190",
+		"name": "GraphQL Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7647958"
+	},
+	"item": [
+		{
+			"name": "Get All Books",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"query {\\n  books {\\n    id\\n    name\\n    authorId\\n    author {\\n      name\\n      id\\n    }\\n  }\\n}\\n# query {\\n#   book(id: 3) {\\n#     id\\n#     name\\n#     # books {\\n#     #   name\\n#     # }\\n#   }\\n# }\\n\\n# query {\\n#   books {\\n#     id\\n#     name\\n#   }\\n# }\\n\\n# mutation {\\n#   addBook(name: \\\"Where r u\\\", authorId: 1) {\\n#     id,\\n#     name\\n#   }\\n# }\\n\\n# mutation {\\n#   addAuthor(name: \\\"Cliff\\\") {\\n#     id,\\n#     name\\n#   }\\n# }\\n\\n# query {\\n#   authors {\\n#     id\\n#     name\\n#   }\\n# }\",\n    \"variables\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"query {\\n  book(id: 1) {\\n    id\\n    name\\n    authorId\\n    author {\\n      name\\n    }\\n  }\\n}\\n\\n# query {\\n#   books {\\n#     id\\n#     name\\n#   }\\n# }\\n\\n# mutation {\\n#   addBook(name: \\\"Where r u\\\", authorId: 1) {\\n#     id,\\n#     name\\n#   }\\n# }\\n\\n# mutation {\\n#   addAuthor(name: \\\"Cliff\\\") {\\n#     id,\\n#     name\\n#   }\\n# }\\n\\n# query {\\n#   authors {\\n#     id\\n#     name\\n#   }\\n# }\",\n    \"variables\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Authors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"query {\\n  authors {\\n    id\\n    name\\n    books {\\n      id\\n      name\\n      authorId\\n      author {\\n        name\\n      }\\n    }\\n  }\\n}\\n# query {\\n#   book(id: 3) {\\n#     id\\n#     name\\n#     # books {\\n#     #   name\\n#     # }\\n#   }\\n# }\\n\\n# query {\\n#   books {\\n#     id\\n#     name\\n#   }\\n# }\\n\\n# mutation {\\n#   addBook(name: \\\"Where r u\\\", authorId: 1) {\\n#     id,\\n#     name\\n#   }\\n# }\\n\\n# mutation {\\n#   addAuthor(name: \\\"Cliff\\\") {\\n#     id,\\n#     name\\n#   }\\n# }\\n\\n# query {\\n#   authors {\\n#     id\\n#     name\\n#   }\\n# }\",\n    \"variables\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Author",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"query {\\n  author(id: 1) {\\n    id\\n    name\\n    books {\\n      name\\n    }\\n  }\\n}\\n\\n# query {\\n#   books {\\n#     id\\n#     name\\n#   }\\n# }\\n\\n# mutation {\\n#   addBook(name: \\\"Where r u\\\", authorId: 1) {\\n#     id,\\n#     name\\n#   }\\n# }\\n\\n# mutation {\\n#   addAuthor(name: \\\"Cliff\\\") {\\n#     id,\\n#     name\\n#   }\\n# }\\n\\n# query {\\n#   authors {\\n#     id\\n#     name\\n#   }\\n# }\",\n    \"variables\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Author",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"query\":\"\\n\\n# mutation {\\n#   addBook(name: \\\"Where r u\\\", authorId: 1) {\\n#     id,\\n#     name\\n#   }\\n# }\\n\\nmutation {\\n  createAuthor(name: \\\"Cliff Su\\\") {\\n    id,\\n    name\\n  }\\n}\",\"variables\":null}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"\\n\\nmutation {\\n  createBook(name: \\\"Where r u\\\", authorId: 1) {\\n    id,\\n    name\\n  }\\n}\\n\\n# mutation {\\n#   createAuthor(name: \\\"Cliff Su\\\") {\\n#     id,\\n#     name\\n#   }\\n# }\",\n    \"variables\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/graphql?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
