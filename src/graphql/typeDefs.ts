@@ -16,7 +16,7 @@ export const typeDefs = gql`
   }
 
   type Query {
-    getRecipe(ID: ID!): Recipe!
+    getRecipe(ID: ID!): Recipe
     getRecipes(amount: Int): [Recipe]
   }
 
