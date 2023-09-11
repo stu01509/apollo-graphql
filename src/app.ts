@@ -1,5 +1,3 @@
-import express from 'express';
-import { graphqlHTTP } from 'express-graphql';
 import {
   GraphQLSchema,
   GraphQLObjectType,
@@ -8,9 +6,16 @@ import {
   GraphQLInt,
   GraphQLNonNull
 } from 'graphql';
+import { ApolloServer } from 'apollo-server';
+import express from 'express';
+import { graphqlHTTP } from 'express-graphql';
+import connectMongoDB from './utils/database';
+import typeDefs from './graphql/typeDefs';
+import resolvers from './graphql/resolvers';
 
 const app = express();
-const PORT = 3000;
+const EXPRESS_PORT = 3000;
+const APOLLO_SERVER_PORT = 4000;
 
 const AUTHORS = [
   { id: 1, name: 'J. K. Rowling' },
@@ -134,9 +139,24 @@ const schema = new GraphQLSchema({
   mutation: RootMutationType,
 });
 
+(async() => {
+  try {
+    await connectMongoDB();    
+  } catch (error) {
+    console.error(error);
+    process.exit(0);
+  }
+})();
+
+const apolloServer = new ApolloServer({
+  typeDefs,
+  resolvers,
+})
+
 app.use('/graphql', graphqlHTTP({
   graphiql: true,
   schema,
 }));
 
-app.listen(PORT, () => console.log(`Server is listening on ${PORT}`));
+apolloServer.listen(APOLLO_SERVER_PORT, () => console.log(`Apollo Server is listening on ${APOLLO_SERVER_PORT}`));
+app.listen(EXPRESS_PORT, () => console.log(`Express Server is listening on ${EXPRESS_PORT}`));
